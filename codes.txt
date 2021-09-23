@@ -1,0 +1,28 @@
+const [data, setData] = useState(null);
+    const [postData, setPostdata] = useState({
+        product_id: null,
+        price: null,
+        qty: null
+    });
+    const pri = useRef(null);
+    const pid = useRef(null);
+    const qtty = useRef(null);
+    const f = () => {
+        instance.get("/stocks").then((response) => {
+            setData(response.data);
+            console.log(data);
+        }).catch((error) => {
+            console.log('error : ', error);
+        });
+    }
+    const callPost = () => {
+        ff({ product_id: pid.current.value, price: pri.current.value, qty: qtty.current.value });
+    }
+    const ff = (postDataLocal) => {
+        console.log('', postDataLocal);
+        instance.post("/addStock", postDataLocal).then((response) => {
+            alert(response.data);
+        }).catch((error) => {
+            alert(error);
+        });
+    }

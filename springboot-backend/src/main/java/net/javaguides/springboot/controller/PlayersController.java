@@ -2,6 +2,7 @@ package net.javaguides.springboot.controller;
 
 import net.javaguides.springboot.model.Bid;
 import net.javaguides.springboot.model.Players;
+import net.javaguides.springboot.model.Result;
 import net.javaguides.springboot.repository.PlayersRepository;
 import net.javaguides.springboot.services.PlayersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,13 @@ public class PlayersController {
     }
 
     @GetMapping("/setBase")
-    public void setBid(int base_price, int player_id){
+    public void setBid(int player_id, int base_price){
         playersService.setBase(base_price, player_id);
+    }
+
+    @GetMapping("/getResult")
+    public List<Result> getResult(){
+        return playersService.getResult();
     }
 
 }
