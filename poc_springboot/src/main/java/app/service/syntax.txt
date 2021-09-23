@@ -1,0 +1,36 @@
+repository methods to be used in service for doing
+
+update logic ..
+repo.save(entityobject);  //insert or update.
+
+to check whether an entity object exists or not
+if repo.existsById(primary key)
+
+to delete the object
+ar.deleteById(primary key);
+remember primary key value comes from the input argument.
+
+to get an object (single select)
+repo.findById(primarykey) returns the OptionalObject.
+
+repo.findById(primarykey).get() will return the Entity object
+for a given id for example repo.findById(empno).get will
+return Emp Entity object, in case Emp object is not
+found it will throw an Exception called 
+NoSuchElementException , in case exception is not found.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

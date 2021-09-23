@@ -1,0 +1,29 @@
+ResponseEntity<Emp>
+new ResponseEntity<Emp>(HttpStatus.NOT_FOUND);
+new ResponseEntity<Emp>(empobject,HttpStatus.OK);
+
+
+
+@PutMapping("/add")
+	public CResult addAcc(@RequestBody Acc c)
+public ResponseEntity<CResult> addAcc(@RequestBody Acc c)
+		
+
+	
+	@PostMapping("/upt")
+	public CResult updateAcc(@RequestBody Acc c)
+ updateAcc(@RequestBody Acc c)
+	
+		
+	@DeleteMapping("/remove")
+	public CResult removeAcc(@RequestParam("x") int accno)
+	public ResponseEntity<CResult> removeAcc(@RequestParam("x") int accno)
+	
+	
+	
+	@GetMapping("/ss")
+	public CResult getAccSS(@RequestParam("x") int accno)
+	public ResponseEntity<CResult> getAccSS(@RequestParam("x") int accno)
+	
+	
+	
