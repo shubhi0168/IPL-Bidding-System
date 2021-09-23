@@ -12,6 +12,9 @@ public class Teams {
 
     private int nop;
 
+    private Teams(){
+
+    }
     public Teams(int teamid, String teamname, int nop) {
         this.teamid = teamid;
         this.teamname = teamname;

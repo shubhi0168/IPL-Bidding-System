@@ -1,5 +1,6 @@
 package net.javaguides.springboot.controller;
 
+import net.javaguides.springboot.model.Bid;
 import net.javaguides.springboot.model.Players;
 import net.javaguides.springboot.repository.PlayersRepository;
 import net.javaguides.springboot.services.PlayersService;
@@ -24,7 +25,11 @@ public class PlayersController {
     @GetMapping("/getPlayersList")
     public List<Players> playersList(){
         return playersService.playersList();
+    }
 
+    @GetMapping("/setBid")
+    public boolean setBid(@RequestBody Bid bid){
+        return playersService.setBid(bid);
     }
 
     @GetMapping("/setBase")

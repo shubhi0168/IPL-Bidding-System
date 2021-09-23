@@ -1,7 +1,10 @@
 package net.javaguides.springboot.services;
 
+import net.javaguides.springboot.model.Bid;
 import net.javaguides.springboot.model.Players;
+import net.javaguides.springboot.model.Teams;
 import net.javaguides.springboot.repository.PlayersRepository;
+import net.javaguides.springboot.repository.TeamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +24,29 @@ public class PlayersService {
     }
 
 
+    @Autowired
+    private TeamsRepository teamsRepository;
+
     public List<Players> playersList() {
         return playersRepository.findAll();
 
+    }
+
+    public boolean setBid(Bid bid) {
+        boolean status= false;
+        Players p = playersRepository.getOne(bid.getPlayerid());
+        p.setBid(bid.getBid());
+        p.setTeamid(bid.getTeamid());
+
+        Teams t = teamsRepository.getOne(bid.getTeamid());
+        t.setNop(t.getNop()+1);
+        if(playersRepository.existsById(bid.getPlayerid()))
+        {
+            playersRepository.save(p);
+            teamsRepository.save(t);
+            status=true;
+        }
+        return status;
     }
 
 

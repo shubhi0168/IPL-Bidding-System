@@ -8,7 +8,6 @@ public class Players {
     @Id
     private Integer playerid;
 
-    @Column(name = "playername")
     private String playername;
 
     private int base;
