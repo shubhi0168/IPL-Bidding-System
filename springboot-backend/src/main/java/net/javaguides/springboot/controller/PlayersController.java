@@ -27,4 +27,9 @@ public class PlayersController {
 
     }
 
+    @GetMapping("/setBase")
+    public void setBid(int base_price, int player_id){
+        playersService.setBase(base_price, player_id);
+    }
+
 }
